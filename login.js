@@ -23,18 +23,28 @@ function loginAcc() {
             m.password == loginAccount.password
     );
     console.log(retrieveAccount);
+ 
+    // if (isExisting) {
+    //     // pass the username ID to the Todo Homepage
+    //     alert('Login successfully!');
+    //     localStorage.setItem("Username", loginAccount.username);
+    //     window.location.href='todo.html'
+    //     window.location.assign('todo.html');
 
-    if (isExisting) {
-        // pass the username ID to the Todo Homepage
-        alert('Login successfully!');
-        localStorage.setItem("Username", loginAccount.username);
-        window.location.href='todo.html'
-        window.location.assign('todo.html');
+    //     // console.log(passID);
+    // } else {
+    //     alert('Incorrect Username/Password')
+    // }
 
-        // console.log(passID);
-    } else {
-        alert('Incorrect Username/Password')
+    if (!isExisting) {
+        alert('Incorrect Username/Password');
+        return;
     }
+
+    // pass the username ID to the Todo Homepage
+    alert('Login successfully!');
+    localStorage.setItem("Username", loginAccount.username);
+    window.location.href='todo.html'
 
 }
 
@@ -45,7 +55,6 @@ function initializeEvent() {
     })
 
 }
-
 
 //btoa: encryption
 //check console.log to see the encryption

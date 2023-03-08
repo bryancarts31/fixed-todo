@@ -13,12 +13,12 @@ hr{
     margin-top: 10px;
 }
 
-.container{
+/* .container{
     display: flex;
     align-items: center;    
     justify-content: center;
     flex-direction: column;
-} 
+}  */
 .input-users{
     margin: 10px 0px;
 }
@@ -61,6 +61,9 @@ hr{
 /* To Do */
 .dropdown{
     margin:10px 0px 0px 10px;
+}
+.nav-item a{
+    color: #fff;
 }
 .table{
     margin-top: 10px;

@@ -20,25 +20,51 @@ function registerAcc() {
         confirm: btoa(conpass.value)
     };
 
-    if (regAccount.username === "" || regAccount.password === "" || regAccount.confirm === "")
+    // if (regAccount.username === "" || regAccount.password === "" || regAccount.confirm === "")
+    //     alert("No Input");
+    // else if (regAccount.password != regAccount.confirm)
+    //     alert("Password and Confirm Password do not match!");
+    // else {
+    //     let isExisting = retrieveAccount.find(
+    //         (m) =>
+    //             m.username == regAccount.username &&
+    //             m.password == regAccount.password
+    //     );
+    //     if (isExisting) {
+    //         alert('Account Is Already Existing!');
+    //     } else {
+    //         retrieveAccount.push(regAccount);
+    //         localStorage.setItem("retrieveAccount", JSON.stringify(retrieveAccount));
+    //         alert("Successfully Registered!");
+    //         window.location.assign('login.html');
+    //     }
+    // }
+
+    if (regAccount.username === "" || regAccount.password === "" || regAccount.confirm === ""){
         alert("No Input");
-    else if (regAccount.password != regAccount.confirm)
-        alert("Password and Confirm Password do not match!");
-    else {
-        let isExisting = retrieveAccount.find(
-            (m) =>
-                m.username == regAccount.username &&
-                m.password == regAccount.password
-        );
-        if (isExisting) {
-            alert('Account Is Already Existing!');
-        } else {
-            retrieveAccount.push(regAccount);
-            localStorage.setItem("retrieveAccount", JSON.stringify(retrieveAccount));
-            alert("Successfully Registered!");
-            window.location.assign('login.html');
-        }
+        return;
     }
+
+    if (regAccount.password != regAccount.confirm) {
+        alert("Password and Confirm Password do not match!");
+        return;
+    }
+
+    let isExisting = retrieveAccount.find(
+        (m) =>
+            m.username == regAccount.username &&
+            m.password == regAccount.password
+    );
+
+    if (isExisting) {
+        alert('Account Is Already Existing!');
+        return;
+    }
+
+    retrieveAccount.push(regAccount);
+    localStorage.setItem("retrieveAccount", JSON.stringify(retrieveAccount));
+    alert("Successfully Registered!");
+    window.location.assign('login.html');
 }
 
 function GenerateUniqueId() {
@@ -53,6 +79,6 @@ function GenerateUniqueId() {
 
 function initializeEvent() {
     btn_reg.addEventListener('click', () => {
-        registerAcc()
+        registerAcc();
     });
 }

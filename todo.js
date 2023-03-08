@@ -20,7 +20,7 @@ loadList(todo);
 initializeEvent();
 displayUser();
 
-function createList(list) {
+function addList(list) {
 //   let lists = {
 //     id: generateId(),
 //     input: list,
@@ -47,21 +47,15 @@ function createList(list) {
 }
 
 function editList(id) {
-  input_todo = document.getElementById("inputTodo");
-  input_id = document.getElementById("inputId");
-  input_date = document.getElementById("inputDate");
-  title.innerHTML = "Edit List";
   let editList = todo.findIndex((x) => x.id == id);
 
   input_id.value = todo[editList].id;
   input_todo.value = todo[editList].input;
   input_date.value = todo[editList].date;
-//   console.log((input_todo.value = todo[editList].input));
+  //console.log((input_todo.value = todo[editList].input));
 }
 
-
 function deleteList(id){
-    title.innerHTML = "Edit List";
 	let deleteList = todo.findIndex((x) => x.id == id);
 	todo.splice(deleteList, 1);
 	loadList(todo);
@@ -138,9 +132,9 @@ function initializeEvent() {
   })
 
   create.addEventListener("click", () => {
-    input_todo = document.getElementById("inputTodo");
-    input_id = document.getElementById("inputId");
-    input_date = document.getElementById("inputDate");
+    // input_todo = document.getElementById("inputTodo");
+    // input_id = document.getElementById("inputId");
+    // input_date = document.getElementById("inputDate");
 
     let listTodo = {
       id: input_id.value,
@@ -148,7 +142,7 @@ function initializeEvent() {
       date: input_date.value
     };
 
-    createList(listTodo);
+    addList(listTodo);
     loadList(todo);
   });
 }
@@ -163,7 +157,7 @@ function generateId() {
   return id;
 }
 
-function saveStorage(){
+function saveChangesToStorage(){
     if (localStorage.getItem("todo") === null)
         localStorage.setItem('todo', "");
 
@@ -175,6 +169,8 @@ function displayUser(){
   userName = document.getElementById('dropdownMenuButton1');
   let user = localStorage.getItem('Username');
   
-  userName.innerHTML = user;
+  userName.innerHTML = `
+    <span><i class="fa fa-user" aria-hidden="true"></i>  ${user}</span>
+  `;
   console.log(user);
 }
