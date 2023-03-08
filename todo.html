@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Butts
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Account Settings</a></li>
+          <li><a class="dropdown-item" href="login.html">Log Out</a></li>
+        </ul>
+      </div>
+      
+    <div class="container">
+        <div class="col">
+            <div class="row-lg-6 row-md-12">
+                <div id="todo">
+                    <h1 id="title">To Do List</h1>
+                    <div class="btn-todo">
+                        <input type="hidden" name="id" id="inputId">
+                        <input 
+                            type="text"
+                            id="inputTodo"
+                            class="form-control"
+                            placeholder="Input" />
+                        <input
+                            type="date"
+                            id="inputDate"
+                            name="Deadline"
+                            placeholder="Deadline"
+                            class="form-control" />		
+                        <button id="create" class="btn btn-outline-success w-100 mt-1">Add Task</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row-lg-6 row-md-12">
+                <input type="search" class="form-control mt-2 mb-2" placeholder="Search..." id="inputSearch" />
+                <table class="table table-hover">
+                    <thead>
+                        <th scope="col">Id</th>
+                        <th scope="col">To do</th>
+                        <th scope="col">Deadline</th>
+                        <th scope="col">Action</th>
+                    </thead>
+                    <tbody id="showList"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="todo.js"></script>
+    <!-- <script src="global.js"></script> -->
+</body>
+
+</html>
